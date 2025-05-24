@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoFinds - Landing Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hero SVG wave background -->
+  <div class="hero-wave">
+    <svg width="100%" height="180" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 80 Q360 180 720 80T1440 80V180H0V80Z" fill="#b2dfdb" fill-opacity="0.35"/>
+      <path d="M0 120 Q360 20 720 120T1440 120V180H0V120Z" fill="#00c9ff" fill-opacity="0.13"/>
+    </svg>
+  </div>
+  <!-- Floating eco icons -->
+  <svg class="eco-icon leaf" viewBox="0 0 48 48"><path d="M24 44C24 44 44 34 44 14C44 8 38 4 32 4C28 4 24 8 24 8C24 8 20 4 16 4C10 4 4 8 4 14C4 34 24 44 24 44Z" fill="#43a047"/></svg>
+  <svg class="eco-icon recycle" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#00c9ff"/><path d="M27 12L32 22H22L27 12Z" fill="#fff"/><path d="M42 32L32 27V37L42 32Z" fill="#fff"/><path d="M12 32L22 37V27L12 32Z" fill="#fff"/></svg>
+  <svg class="eco-icon globe" viewBox="0 0 60 60"><circle cx="30" cy="30" r="30" fill="#92fe9d"/><ellipse cx="30" cy="30" rx="18" ry="28" fill="#fff" fill-opacity="0.3"/></svg>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <a class="navbar-brand" href="landingpage.html">EcoFinds</a>
+    <div class="ms-auto" id="navbar-links">
+      <!-- Navbar content will be dynamically updated by navbar.js -->
+    </div>
+  </nav>
+
+  <div class="container my-3">
+    <div class="banner">
+      <div class="banner-eco-decor">
+        <!-- Leaves -->
+        <svg width="48" height="48" style="position:absolute;top:18px;right:32px;opacity:0.18;z-index:0;" viewBox="0 0 48 48"><path d="M24 44C24 44 44 34 44 14C44 8 38 4 32 4C28 4 24 8 24 8C24 8 20 4 16 4C10 4 4 8 4 14C4 34 24 44 24 44Z" fill="#8bc34a"/></svg>
+        <svg width="32" height="32" style="position:absolute;top:60px;left:38px;opacity:0.13;z-index:0;" viewBox="0 0 32 32"><ellipse cx="16" cy="24" rx="14" ry="8" fill="#4fc3f7"/></svg>
+        <!-- Tree -->
+        <svg width="38" height="60" style="position:absolute;bottom:10px;right:60px;opacity:0.16;z-index:0;" viewBox="0 0 38 60"><rect x="16" y="40" width="6" height="18" rx="3" fill="#8d6e63"/><ellipse cx="19" cy="36" rx="16" ry="12" fill="#388e3c"/></svg>
+      </div>
+      <div class="banner-bg-ecoicon">
+        <svg width="120" height="120" viewBox="0 0 48 48" style="position:absolute;left:10px;top:10px;opacity:0.13;z-index:0;"><path d="M24 44C24 44 44 34 44 14C44 8 38 4 32 4C28 4 24 8 24 8C24 8 20 4 16 4C10 4 4 8 4 14C4 34 24 44 24 44Z" fill="#43a047"/></svg>
+      </div>
+      <span class="typewriter-text">Welcome to EcoFinds!</span>
+      <div class="banner-tagline">Discover Sustainable Choices</div>
+      <div class="banner-features">
+        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#8bc34a"/><path d="M10 4L13 10H7L10 4Z" fill="#fff"/></svg> Eco-Friendly</span>
+        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4fc3f7"/><path d="M5 10h10M10 5v10" stroke="#fff" stroke-width="2"/></svg> Curated Finds</span>
+        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#388e3c"/><path d="M6 14l4-4 4 4" stroke="#fff" stroke-width="2" fill="none"/></svg> Fast Delivery</span>
+      </div>
+    </div>
+    <svg class="section-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 24 Q360 48 720 24T1440 24V48H0V24Z" fill="#b2dfdb" fill-opacity="0.18"/></svg>
+
+    <div class="search-banner">
+      <div class="search-banner-bg">
+        <!-- Sea wave SVG background -->
+        <svg width="100%" height="160" viewBox="0 0 900 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:0;z-index:0;">
+          <path d="M0 80 Q150 120 300 80T600 80T900 80V160H0V80Z" fill="#4fc3f7" fill-opacity="0.32"/>
+          <path d="M0 110 Q225 160 450 110T900 110V160H0V110Z" fill="#00bcd4" fill-opacity="0.22"/>
+          <path d="M0 140 Q300 120 600 140T900 140V160H0V140Z" fill="#8bc34a" fill-opacity="0.13"/>
+        </svg>
+        <!-- Decorative boat -->
+        <svg width="48" height="32" style="position:absolute;left:60px;top:38px;z-index:1;opacity:0.85;" viewBox="0 0 48 32"><rect x="10" y="20" width="28" height="8" rx="4" fill="#fffde7" stroke="#388e3c" stroke-width="2"/><polygon points="24,8 34,20 14,20" fill="#4fc3f7" stroke="#388e3c" stroke-width="1.5"/></svg>
+        <!-- Decorative bubbles -->
+        <svg width="16" height="16" style="position:absolute;right:60px;top:60px;z-index:1;opacity:0.5;" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#fff" fill-opacity="0.7"/></svg>
+        <svg width="10" height="10" style="position:absolute;right:90px;top:90px;z-index:1;opacity:0.3;" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#fff" fill-opacity="0.7"/></svg>
+        <svg width="8" height="8" style="position:absolute;right:120px;top:110px;z-index:1;opacity:0.2;" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#fff" fill-opacity="0.7"/></svg>
+      </div>
+      <div class="search-bar-wrapper">
+        <span class="search-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7" stroke="#388e3c" stroke-width="2"/><line x1="16" y1="16" x2="21" y2="21" stroke="#388e3c" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <input type="text" id="searchBar" class="form-control mb-3" placeholder="Search products...">
+      </div>
+      <div class="action-group d-flex gap-2 mb-3">
+        <button class="btn btn-outline-secondary"><span class="action-icon">⇅</span> <span class="action-label">Sort</span></button>
+        <button class="btn btn-outline-secondary"><span class="action-icon">⛃</span> <span class="action-label">Filter</span></button>
+        <button class="btn btn-outline-secondary"><span class="action-icon">☰</span> <span class="action-label">Group By</span></button>
+      </div>
+    </div>
+
+    <h5>Categories</h5>
+    <div class="row" id="category-list">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/100/000000/electronics.png" alt="Electronics Icon" />
+          <div class="card__content">
+            <p class="card__title">Electronics</p>
+            <p class="card__description">Discover the latest in electronic & smart appliance trends.</p>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/100/clothes.png" alt="Fashion Icon" />
+          <div class="card__content">
+            <p class="card__title">Fashion</p>
+            <p class="card__description">Stay stylish with our eco-conscious fashion picks.</p>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/100/000000/sofa.png" alt="Furniture Icon" />
+          <div class="card__content">
+            <p class="card__title">Furniture</p>
+            <p class="card__description">Explore sustainable furniture designed for comfort.</p>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id="no-results" class="text-danger d-none">No products found.</p>
+
+    <h5 class="mt-4">Featured Product</h5>
+    <div class="card mb-3">
+      <img src="https://img.icons8.com/ios-filled/100/000000/light.png" alt="Lamp Icon" />
+      <div class="card__content">
+        <p class="card__title">Eco-friendly Lamp</p>
+        <p class="card__description">Brighten your room sustainably with our eco-friendly, energy-saving lamp made from recycled materials.</p>
+        <button class="shop-now-btn">Shop Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="navbar.js"></script>
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const categories = document.querySelectorAll('.card__title');
+    const categoryCards = document.querySelectorAll('#category-list .col-md-4');
+    const noResults = document.getElementById('no-results');
+    const cartCount = document.getElementById('cart-count');
+
+    let cartItems = 0; // Simulated cart count
+
+    searchBar.addEventListener('input', (e) => {
+      const keyword = e.target.value.toLowerCase();
+      let found = false;
+
+      categoryCards.forEach((card, index) => {
+        const text = categories[index].textContent.toLowerCase();
+        if (text.includes(keyword)) {
+          card.style.display = 'block';
+          found = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      noResults.classList.toggle('d-none', found);
+    });
+
+    // Simulate adding item to cart and updating in real time
+    setInterval(() => {
+      cartItems = (cartItems + 1) % 10;
+      cartCount.textContent = cartItems;
+    }, 3000);
+  </script>
+</body>
+</html>

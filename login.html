@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup & Login</title>
+    <style>
+        body {
+            background: url('img/loginecobackground.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: #fff;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            /* Eco city SVG background */
+            background-image: url('img/loginecobackground.png');
+            background-size: cover;
+            background-position: center;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            background: rgba(30, 60, 60, 0.35);
+            pointer-events: none;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 60px;
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+            margin-top: -60px;
+        }
+        .form-box {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.36) 0%, rgba(255, 255, 224, 0.44) 100%);
+            border-radius: 22px;
+            border: 3px solid;
+            border-image: linear-gradient(90deg, #ffd700 0%, #fffbe6 100%);
+            border-image-slice: 1;
+            padding: 38px 32px 28px 32px;
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.18);
+            overflow: hidden;
+        }
+        .form-box > * {
+            position: relative;
+            z-index: 1;
+        }
+        .form-box:hover {
+            box-shadow: 0 12px 40px 0 rgba(255, 215, 0, 0.32);
+        }
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.08);
+            border: 2.5px solid #fff;
+            border-radius: 50%;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.7rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .form-box h2 {
+            margin: 0 0 18px 0;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.25), 0 1px 2px rgba(0,0,0,0.10);
+        }
+        .form-box form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .form-box input[type="text"],
+        .form-box input[type="email"],
+        .form-box input[type="password"] {
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1.5px solid #3b3b4f;
+            background: rgba(255,255,255,0.10);
+            color: #222;
+            font-size: 1.05rem;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .form-box input::placeholder {
+            color: #444;
+            opacity: 1;
+            font-weight: 500;
+        }
+        .form-box input[type="text"]:focus,
+        .form-box input[type="email"]:focus,
+        .form-box input[type="password"]:focus {
+            border: 1.5px solid #ffd700;
+            box-shadow: 0 0 8px #ffd70044;
+            background: rgba(255,255,255,0.16);
+        }
+        .form-box button {
+            margin-top: 10px;
+            padding: 12px 0;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ffd700 0%, #fffbe6 100%);
+            color: #232526;
+            font-size: 1.13rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #ffd70033;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .form-box button:hover {
+            background: linear-gradient(90deg, #fffbe6 0%, #ffd700 100%);
+            box-shadow: 0 4px 16px #ffd70044;
+        }
+        .toggle-link {
+            margin-top: 14px;
+            color: #388e3c;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 1rem;
+            transition: color 0.2s;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.25), 0 1px 2px rgba(0,0,0,0.10);
+        }
+        .toggle-link:hover {
+            color: #222;
+        }
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+        }
+        @media (max-width: 500px) {
+            .form-box {
+                width: 95vw;
+                padding: 18px 4vw 18px 4vw;
+            }
+        }
+        /* Make the toggle-link in #signup-box bold and black */
+        #signup-box .toggle-link {
+            color: #111 !important;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.18);
+        }
+        /* Make the toggle-link in #login-box bold and black */
+        #login-box .toggle-link {
+            color: #111 !important;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.18);
+        }
+        /* Eye icon for password visibility */
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .password-wrapper input[type="password"],
+        .password-wrapper input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 3;
+            width: 22px;
+            height: 22px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .toggle-password:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <!-- Signup Section -->
+        <div style="position: relative;">
+            <!-- Left realistic branch -->
+            <svg class="branch-svg" style="position:absolute;top:-70px;left:-40px;width:140px;height:100px;z-index:2;" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M135 95 Q80 10 10 80" stroke="#7c4a03" stroke-width="10" fill="none" stroke-linecap="round"/>
+                <path d="M60 40 Q55 55 70 60" stroke="#7c4a03" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <ellipse cx="30" cy="70" rx="13" ry="7" fill="#388e3c"/>
+                <ellipse cx="55" cy="50" rx="10" ry="5" fill="#43a047"/>
+                <ellipse cx="80" cy="35" rx="12" ry="6" fill="#66bb6a"/>
+                <ellipse cx="110" cy="70" rx="11" ry="6" fill="#388e3c"/>
+                <!-- branch grip -->
+                <ellipse cx="130" cy="90" rx="10" ry="6" fill="#7c4a03"/>
+                <ellipse cx="20" cy="85" rx="8" ry="4" fill="#7c4a03"/>
+            </svg>
+            <div class="form-box" id="signup-box">
+                <div class="avatar">👤</div>
+                <h2>Sign up</h2>
+                <form id="signup-form">
+                    <input type="text" id="signup-name" placeholder="Username" required>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <div class="password-wrapper">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                        <span class="toggle-password" onclick="togglePassword('signup-password', this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="8" ry="5"/><circle cx="12" cy="12" r="2.5"/></svg>
+                        </span>
+                    </div>
+                    <div class="password-wrapper">
+                        <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+                        <span class="toggle-password" onclick="togglePassword('signup-confirm', this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="8" ry="5"/><circle cx="12" cy="12" r="2.5"/></svg>
+                        </span>
+                    </div>
+                    <button type="submit">Sign up</button>
+                </form>
+                <div class="toggle-link" onclick="showLogin()">Already have an account? Login</div>
+            </div>
+        </div>
+        <!-- Login Section -->
+        <div style="position: relative;">
+            <!-- Right realistic branch -->
+            <svg class="branch-svg" style="position:absolute;top:-70px;right:-40px;width:140px;height:100px;z-index:2;" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 95 Q60 10 130 80" stroke="#7c4a03" stroke-width="10" fill="none" stroke-linecap="round"/>
+                <path d="M80 40 Q85 55 70 60" stroke="#7c4a03" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <ellipse cx="110" cy="70" rx="13" ry="7" fill="#388e3c"/>
+                <ellipse cx="85" cy="50" rx="10" ry="5" fill="#43a047"/>
+                <ellipse cx="60" cy="35" rx="12" ry="6" fill="#66bb6a"/>
+                <ellipse cx="30" cy="70" rx="11" ry="6" fill="#388e3c"/>
+                <!-- branch grip -->
+                <ellipse cx="10" cy="90" rx="10" ry="6" fill="#7c4a03"/>
+                <ellipse cx="120" cy="85" rx="8" ry="4" fill="#7c4a03"/>
+            </svg>
+            <div class="form-box" id="login-box" style="display: none;">
+                <div class="avatar">🔐</div>
+                <h2>Login</h2>
+                <form id="login-form">
+                    <input type="text" id="login-username" placeholder="Username" required>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <span class="toggle-password" onclick="togglePassword('login-password', this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="8" ry="5"/><circle cx="12" cy="12" r="2.5"/></svg>
+                        </span>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <div class="toggle-link" onclick="showSignup()">Don't have an account? Sign up</div>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

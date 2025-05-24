@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFinds - Product Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <!-- Hero SVG wave background -->
+    <div class="hero-wave">
+        <svg width="100%" height="180" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 80 Q360 180 720 80T1440 80V180H0V80Z" fill="#b2dfdb" fill-opacity="0.35"/>
+            <path d="M0 120 Q360 20 720 120T1440 120V180H0V120Z" fill="#00c9ff" fill-opacity="0.13"/>
+        </svg>
+    </div>
+
+    <!-- Floating eco icons -->
+    <svg class="eco-icon leaf" viewBox="0 0 48 48"><path d="M24 44C24 44 44 34 44 14C44 8 38 4 32 4C28 4 24 8 24 8C24 8 20 4 16 4C10 4 4 8 4 14C4 34 24 44 24 44Z" fill="#43a047"/></svg>
+    <svg class="eco-icon recycle" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#00c9ff"/><path d="M27 12L32 22H22L27 12Z" fill="#fff"/><path d="M42 32L32 27V37L42 32Z" fill="#fff"/><path d="M12 32L22 37V27L12 32Z" fill="#fff"/></svg>
+    <svg class="eco-icon globe" viewBox="0 0 60 60"><circle cx="30" cy="30" r="30" fill="#92fe9d"/><ellipse cx="30" cy="30" rx="18" ry="28" fill="#fff" fill-opacity="0.3"/></svg>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+        <a class="navbar-brand" href="../team work/landingpage.html">EcoFinds</a>
+        <div class="ms-auto" id="navbar-links">
+            <a href="../team work/dashboard.html" class="me-2">Profile</a>
+            <button class="btn position-relative" onclick="window.location.href='../team work/purchase.html'">
+                <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v1.png"/>
+                <span class="badge bg-danger rounded-pill cart-badge" id="cart-count">1</span>
+            </button>
+        </div>
+    </nav>
+
+    <div style="margin: 1rem 0;">
+        <button class="btn btn-outline-success" onclick="window.location.href='../team work/dashboard.html'">
+            <i class="bi bi-arrow-left"></i> Back to Dashboard
+        </button>
+    </div>
+
+    <div class="container my-3">
+        <div class="product-container">
+            <div class="product-header">
+                <div class="logo">EcoFinds</div>
+                <div class="header-icons">
+                    <div class="cart">
+                        <img src="https://img.icons8.com/material-outlined/32/000000/shopping-cart--v1.png" alt="Cart">
+                        <span class="cart-badge">1</span>
+                    </div>
+                    <div class="profile-avatar"></div>
+                </div>
+            </div>
+
+            <div class="product-page-title">Eco-Friendly Product</div>
+
+            <div class="product-image-section">
+                <div class="product-image">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/light.png" alt="Product Image" class="product-img">
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <div class="product-description-section">
+                <div class="product-description">
+                    <h3>Eco-Friendly Lamp</h3>
+                    <p class="price">$49.99</p>
+                    <p class="description">Brighten your room sustainably with our eco-friendly, energy-saving lamp made from recycled materials. This beautiful piece combines style with environmental responsibility.</p>
+                    <div class="product-features">
+                        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#8bc34a"/><path d="M10 4L13 10H7L10 4Z" fill="#fff"/></svg> Energy Efficient</span>
+                        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4fc3f7"/><path d="M5 10h10M10 5v10" stroke="#fff" stroke-width="2"/></svg> Recycled Materials</span>
+                        <span class="feature-badge"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#388e3c"/><path d="M6 14l4-4 4 4" stroke="#fff" stroke-width="2" fill="none"/></svg> 2 Year Warranty</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="add-to-cart-btn" onclick="window.location.href='../team work/purchase.html'">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const searchBar = document.getElementById('searchBar');
+    const categories = document.querySelectorAll('.card__title');
+    const categoryCards = document.querySelectorAll('#category-list .col-md-4');
+    const noResults = document.getElementById('no-results');
+    const cartCount = document.getElementById('cart-count');
+
+    let cartItems = 0; // Simulated cart count
+
+    searchBar.addEventListener('input', (e) => {
+      const keyword = e.target.value.toLowerCase();
+      let found = false;
+
+      categoryCards.forEach((card, index) => {
+        const text = categories[index].textContent.toLowerCase();
+        if (text.includes(keyword)) {
+          card.style.display = 'block';
+          found = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      noResults.classList.toggle('d-none', found);
+    });
+
+    // Simulate adding item to cart and updating in real time
+    setInterval(() => {
+      cartItems = (cartItems + 1) % 10;
+      cartCount.textContent = cartItems;
+    }, 3000);
+    </script>
+</body>
+</html> 
